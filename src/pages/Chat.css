@@ -1,0 +1,20 @@
+/* ===== Inline mode (embed in right rail) ===== */
+.chat-inline { display: flex; flex-direction: column; gap: 12px; }
+
+.chat-inline .partner-card,
+.chat-inline .trade-card,
+.chat-inline .chat-box {
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+.chat-inline .chat-box {
+  height: 360px;         
+  margin-bottom: 8px;
+}
+
+.chat-inline .chat-inputbar {
+  position: static;       /* ไม่ sticky ในกล่องฝัง */
+}
+
+.chat-inline .btn { border-radius: 20px; }

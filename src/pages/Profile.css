@@ -1,0 +1,381 @@
+/* ========== Profile.css ========== */
+:root {
+  --z-green: #A3D463;
+  --text: #111;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --panel: #fafafa;
+  --border: #e7e7e7;
+  --ring: rgba(163, 212, 99, .28);
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, .06);
+  --shadow: 0 16px 44px rgba(0, 0, 0, .12);
+  --rail-w: 80px;
+  --right-w: 420px;
+}
+
+/* ---------- Layout 3 คอลัมน์ ---------- */
+.profile-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.profile-page .swozp-body {
+  display: grid;
+  grid-template-columns: var(--rail-w) 1fr var(--right-w);
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0;
+  padding: 16px 20px 32px;
+}
+
+/* Left rail ให้สีเท่ากับส่วนอื่น ๆ */
+.profile-page .rail-left {
+  background: #fff;
+  /* เดิม var(--panel) → ใช้ขาวให้เท่ากัน */
+  border-right: 1px solid var(--border);
+}
+
+.rail-left .rail-btn {
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.rail-left .rail-btn.is-active {
+  outline: 0;
+  border-color: var(--border);
+}
+
+/* ---------- Right rail (Match / Message) ---------- */
+.rail-right {
+  border-left: 1px solid var(--border);
+  background: #fff;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #666;
+  transition: background .15s ease, color .15s ease;
+}
+
+.tab--active {
+  background: #f6f6f6;
+  color: #111;
+}
+
+/* กริดรูป: 2 คอลัมน์ ให้ใหญ่ขึ้น */
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.slot {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
+}
+
+.slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slot:hover {
+  transform: none;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
+}
+
+/* ตัด hover effect */
+.slot span {
+  font-weight: 800;
+  font-size: 18px;
+  color: #9aa4b2;
+}
+
+/* กล่องแชท: ตัดขอบ/เงา/พื้นหลัง */
+.chat-container {
+  flex: 1;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+/* ---------- Center: การ์ดโปรไฟล์ ---------- */
+.profile-card {
+  width: 520px;
+  max-width: 95%;
+  margin: 24px auto 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 28px 22px;
+  box-shadow: var(--shadow);
+}
+
+.profile-card .title {
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+/* Avatar */
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 6px auto 8px;
+  border: 2px solid #dcdcdc;
+  background: #f7f7f7;
+}
+
+.change-photo {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: #2546eb;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+/* Fields */
+.fields {
+  margin-top: 10px;
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  position: relative;
+}
+
+.field input {
+  width: 100%;
+  height: 46px;
+  padding: 12px 14px 12px 112px;
+  border: 1.4px solid #cfcfcf;
+  border-radius: 14px;
+  outline: none;
+  font-size: 14px;
+  color: #222;
+  background: #fff;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.field input:focus {
+  border-color: var(--z-green);
+  box-shadow: 0 0 0 6px var(--ring);
+}
+
+.field input[disabled] {
+  background: #f4f5f7;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.field .field__label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  color: var(--z-green);
+  letter-spacing: .1px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .04s ease, filter .2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary:hover {
+  filter: brightness(.96);
+}
+
+.btn--save {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn--cancel {
+  background: #e5e7eb;
+  color: #111;
+}
+
+/* Post history: ย่อการ์ดให้เล็กลง */
+.post-history {
+  margin-top: 18px;
+}
+
+.post-history h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #444;
+  font-weight: 700;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.post-card {
+  height: 120px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.post-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-card .caption {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 10px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+  background: linear-gradient(to top, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0));
+  width: 100%;
+}
+
+.post-add {
+  height: 260px;
+  /* ให้เท่ากับ card */
+  border: 1px dashed #cfd4dc;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(#f8fafc, #eef2f7);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
+  cursor: pointer;
+}
+
+.post-add .plus {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 2px solid #cfd4dc;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  color: #8aa351;
+  background: #fff;
+}
+
+/* Logout */
+.logout-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.logout-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 26px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #ff7b7b;
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: filter .2s ease, transform .04s ease;
+}
+
+.logout-btn:hover {
+  filter: brightness(.95);
+}
+
+.logout-btn:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .profile-page .swozp-body {
+    grid-template-columns: var(--rail-w) 1fr 320px;
+  }
+
+  .rail-right {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 860px) {
+  .profile-page .swozp-body {
+    grid-template-columns: 1fr;
+    padding: 12px 14px 24px;
+  }
+
+  .profile-page .rail-left,
+  .rail-right {
+    display: none;
+  }
+
+  .profile-card {
+    width: 100%;
+    margin-top: 16px;
+  }
+}

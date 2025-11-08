@@ -1,0 +1,348 @@
+/* ========= Theme ========= */
+:root {
+    --z-green: #A3D463;
+    --z-green-strong: #36C466;
+    /* เฉดเร่งตอน hover */
+    --text: #111;
+    --muted: #6b7280;
+    --bg: #fafafa;
+    --panel: #f6f7f7;
+    --border: #e8e8e8;
+    --ring: rgba(163, 212, 99, .28);
+    --shadow-sm: 0 6px 18px rgba(0, 0, 0, .08);
+    --shadow: 0 18px 50px rgba(0, 0, 0, .16);
+
+    /* ปรับความกว้างฝั่งขวาให้เท่าหน้าอื่นได้ที่นี่ (360/420) */
+    --right-w: 420px;
+}
+
+html,
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ========= Shell ========= */
+.create-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
+
+/* ========= Two Col (Left pictures | Right form) ========= */
+.create-two {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 24px 40px;
+    /* ชิด navbar และหายโปร่งกว่าเดิม */
+    display: grid;
+    grid-template-columns: 1fr var(--right-w);
+    gap: 36px;
+    /* ระยะหายใจมากขึ้น */
+}
+
+/* ========= Left: pictures ========= */
+.create-left {
+    border-right: 1px solid var(--border);
+    padding-right: 36px;
+}
+
+.create-title {
+    font-weight: 800;
+    letter-spacing: .2px;
+    margin: 6px 0 18px;
+    text-align: left;
+}
+
+/* กำหนดความกว้างคอลัมน์แน่น ไม่ให้การ์ดเป็นเสายาว */
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 180px);
+    grid-auto-rows: 130px;
+    gap: 30px;
+    max-width: calc(3*180px + 2*18px);
+}
+
+/* ภาพจริง = div.upload-card (solid) | ช่องว่างคลิกได้ = label.upload-card (dashed) */
+.upload-card {
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.upload-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ช่องว่าง (+) */
+label.upload-card {
+    border: 2px dashed rgba(0, 0, 0, .14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #fff, #fbfbfb);
+}
+
+label.upload-card:hover {
+    border-color: var(--z-green);
+    box-shadow: 0 10px 28px rgba(163, 212, 99, .25);
+}
+
+.upload-plus {
+    width: 48px;
+    height: 48px;
+    /* border-radius: 50%;
+    border: 2px solid var(--z-green); */
+    color: var(--z-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    background: #fff;
+}
+
+/* การ์ดมีรูป */
+div.upload-card {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.upload-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.upload-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: #ff5b5b;
+    box-shadow: 0 6px 14px rgba(255, 91, 91, .4);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.upload-remove:hover {
+    background: #ff3c3c;
+}
+
+/* ========= Right: form panel ========= */
+.create-right {
+    width: var(--right-w);
+    max-width: var(--right-w);
+    background: linear-gradient(180deg, #ffffff, var(--panel));
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    padding: 18px 22px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
+}
+
+/* header ผู้ใช้ */
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
+}
+
+.profile-row img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+}
+
+.profile-name {
+    font-weight: 800;
+}
+
+/* fields */
+.form-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: 700;
+    color: #2a2a2a;
+}
+
+/* input/textarea – นีโอมอร์ฟิกนิด ๆ */
+.form-input,
+.form-textarea,
+.form-input:focus,
+.form-textarea:focus,
+.create-right select.form-input {
+    background: #fff;
+}
+
+.form-input,
+.create-right select.form-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    outline: none;
+    transition: box-shadow .18s ease, border-color .18s ease, transform .06s ease;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, .02);
+}
+
+.form-input:focus,
+.create-right select.form-input:focus {
+    border-color: var(--z-green);
+    box-shadow: 0 0 0 4px var(--ring), inset 0 1px 0 rgba(0, 0, 0, .02);
+}
+
+.form-textarea {
+    min-height: 120px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    outline: none;
+    resize: vertical;
+    transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.form-textarea:focus {
+    border-color: var(--z-green);
+    box-shadow: 0 0 0 4px var(--ring);
+}
+
+.char-count {
+    color: #98a1b2;
+    font-size: 12px;
+    text-align: right;
+}
+
+/* divider นุ่ม ๆ */
+.create-right .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #eaeaea, transparent);
+    margin: 2px 0 8px;
+}
+
+/* buttons */
+.action-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.btn {
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .08s ease, box-shadow .18s ease, background .18s ease;
+    border: 1px solid var(--border);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn.cancel {
+    background: #fff;
+    color: #374151;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .06);
+}
+
+.btn.cancel:hover {
+    background: #f3f4f6;
+}
+
+.btn.primary {
+    min-width: 220px;
+    color: #fff;
+    border: none;
+    background: linear-gradient(180deg, var(--z-green), var(--z-green-strong));
+    box-shadow: 0 16px 30px rgba(54, 196, 102, .35);
+}
+
+.btn.primary:hover {
+    filter: saturate(1.06);
+    box-shadow: 0 20px 40px rgba(54, 196, 102, .45);
+}
+
+.btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* ========= Login wall (กรณียังไม่ล็อก) ========= */
+.login-wall {
+    grid-column: 2 / 3;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-login {
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+}
+
+/* ========= Responsive ========= */
+@media (max-width:1200px) {
+    .upload-grid {
+        grid-template-columns: repeat(3, 170px);
+        grid-auto-rows: 120px;
+    }
+}
+
+@media (max-width:1024px) {
+    :root {
+        --right-w: 360px;
+    }
+}
+
+@media (max-width:860px) {
+    .create-two {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .create-left {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .create-right {
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 16px 16px 28px;
+    }
+
+    .upload-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        grid-auto-rows: 120px;
+        max-width: none;
+    }
+}
