@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Overview Project
+
+SWOZP is a barter-based web application that allows users to exchange items or services without monetary transactions.
+The platform is designed as a modular web system, with a strong focus on frontend structure, interaction flows, and UX/UI design.
+This project demonstrates the integration of frontend development with system-oriented thinking and interface design.
+
+### My Role & Responsibilities
+
+I was primarily responsible for Frontend Development and UX/UI Design, including:
+Designing interface layouts and interaction flows
+Structuring reusable and modular frontend components
+Implementing pages for posting, browsing, chat, and exchange management
+Ensuring smooth interaction between frontend logic and backend services
+Translating system requirements into clear and usable UI structures
